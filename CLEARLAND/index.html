@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clearland - Verified Land Marketplace</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i> CLEARLAND
+        </div>
+        <ul class="nav-links">
+            <li><a href="beli tanah.html">Beli Tanah</a></li>
+            <li><a href="jual tanah.html">Jual Tanah</a></li>
+            <li><a href="layanan legal.html">Layanan Legal</a></li>
+            <li><a href="cek harga.html">Cek Harga Tanah</a></li>
+            <li><a href="peta-interaktif-gis.html">Peta Interaktif</a></li> </ul>
+        <div class="nav-mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <a href="login.html" class="btn-primary">Daftar / Masuk</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Verified Land <br> Smarter Decisions</h1>
+            <p>Platform Marketplace Jual Beli Tanah Pertama dengan Verifikasi Legal, Analisis Otomatisasi Nilai Tanah, dan Indikator Kelayakan Zonasi</p>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Cari lokasi, misal: Sentul City...">
+                <button class="search-btn"><i class="fa-solid fa-search"></i> Cari</button>
+            </div>
+
+            <div class="smart-filters" id="categoryFilters">
+                <div class="filter-chip active" data-category="all">
+                    <i class="fa-solid fa-border-all"></i> Semua
+                </div>
+                <div class="filter-chip" data-category="residential">
+                    <i class="fa-solid fa-house"></i> Perumahan
+                </div>
+                <div class="filter-chip" data-category="industrial">
+                    <i class="fa-solid fa-industry"></i> Industri
+                </div>
+                <div class="filter-chip" data-category="commercial">
+                    <i class="fa-solid fa-shop"></i> Ruko/Bisnis
+                </div>
+                <div class="filter-chip" data-category="agricultural">
+                    <i class="fa-solid fa-wheat-awn"></i> Pertanian
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="ai-banner">
+            <div class="ai-content">
+                <h3><i class="fa-solid fa-robot"></i> AI Land Value Analysis</h3>
+                <p>Bingung harga tanah kemahalan? Gunakan AI kami untuk melihat prediksi kenaikan harga dan perbandingan pasar dalam hitungan detik.</p>
+                <button class="ai-btn" onclick="window.location.href='cek harga.html'">
+                Coba Analisis Sekarang</button>
+            </div>
+            <div class="ai-icon-bg">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <div class="section-title">
+                <h2>Rekomendasi Terverifikasi</h2>
+                <p>Tanah dengan legalitas SHM/SHGB yang telah divalidasi tim Clearland</p>
+            </div>
+            <a href="#" class="view-all-link">Lihat Semua &rarr;</a>
+        </div>
+
+        <div class="listings-grid" id="listingsContainer">
+            </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Clearland - STPN</p>
+    </footer>
+
+    <script>
+        // Data Mockup Properti
+        const properties = [
+            {
+                id: 1,
+                title: "Tanah Komersial Pinggir Jalan Raya",
+                location: "Sentul City, Bogor",
+                price: "Rp 1.5 M",
+                pricePerM: "Rp 5jt/m²",
+                area: 300,
+                type: "SHM",
+                category: "commercial",
+                image: "sentul city.jpg",
+                aiStatus: "Undervalued",
+                feasibility: "Layak Bangun"
+            },
+            {
+                id: 2,
+                title: "Kavling Siap Bangun Cluster",
+                location: "BSD City, Tangerang",
+                price: "Rp 850 Jt",
+                pricePerM: "Rp 7jt/m²",
+                area: 120,
+                type: "SHGB",
+                category: "residential",
+                image: "bsd city.jpg",
+                aiStatus: "Fair Price",
+                feasibility: "Zona Kuning"
+            },
+            {
+                id: 3,
+                title: "Lahan Zona Industri Delta Silicon",
+                location: "Cikarang, Bekasi",
+                price: "Rp 15 M",
+                pricePerM: "Rp 3jt/m²",
+                area: 5000,
+                type: "SHGB",
+                category: "industrial",
+                image: "tanah Delta SIlicon.jpg",
+                aiStatus: "High Growth",
+                feasibility: "Layak Bangun"
+            },
+            {
+                id: 4,
+                title: "Tanah Sawah Produktif",
+                location: "Ubud, Bali",
+                price: "Rp 3.2 M",
+                pricePerM: "Rp 1.5jt/m²",
+                area: 2100,
+                type: "SHM",
+                category: "agricultural",
+                image: "sawah depok.jpg",
+                aiStatus: "Rising Star",
+                feasibility: "Lahan Hijau"
+            },
+            {
+                id: 5,
+                title: "Ruko Gandeng Strategis",
+                location: "Kelapa Gading, Jakarta",
+                price: "Rp 8 M",
+                pricePerM: "Rp 25jt/m²",
+                area: 320,
+                type: "SHM",
+                category: "commercial",
+                image: "ruko.jpeg",
+                aiStatus: "Overvalued",
+                feasibility: "Layak Bangun"
+            }
+        ];
+
+        // Fungsi Render Kartu
+        function renderProperties(filter = 'all') {
+            const container = document.getElementById('listingsContainer');
+            container.innerHTML = ''; 
+
+            const filteredProps = filter === 'all' 
+                ? properties 
+                : properties.filter(p => p.category === filter);
+
+            filteredProps.forEach(prop => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                // Tambahkan navigasi klik pada kartu
+                card.onclick = function() {
+                    window.location.href = `detail.html?id=${prop.id}`;
+                };
+
+                // Logic warna badge kelayakan
+                let feasClass = 'feasibility-tag';
+                if(prop.feasibility.includes('Kuning') || prop.feasibility.includes('Perlu')) {
+                    feasClass += ' warning';
+                }
+
+                card.innerHTML = `
+                    <div class="card-image">
+                        <img src="${prop.image}" alt="${prop.title}">
+                        
+                        <div class="badge-verified"><i class="fa-solid fa-shield-virus"></i> VERIFIED</div>
+                        <div class="badge-ai"><i class="fa-solid fa-wand-magic-sparkles"></i> ${prop.aiStatus}</div>
+                        
+                        <div class="image-overlay">
+                            <button class="btn-detail-overlay">
+                                <i class="fa-regular fa-eye"></i> LIHAT DETAIL
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="price">${prop.price} <span>${prop.pricePerM}</span></div>
+                        <div class="title">${prop.title}</div>
+                        <div class="location"><i class="fa-solid fa-location-dot"></i> ${prop.location}</div>
+                        
+                        <div class="specs">
+                            <div class="spec-item"><i class="fa-solid fa-ruler-combined"></i> ${prop.area} m²</div>
+                            <div class="spec-item"><i class="fa-solid fa-file-contract"></i> ${prop.type}</div>
+                        </div>
+
+                        <div class="feasibility-bar">
+                            <span class="feasibility-label">Kelayakan:</span>
+                            <div class="${feasClass}">${prop.feasibility}</div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Jalankan Render Awal
+        renderProperties();
+
+        // Event Listener untuk Filter
+        const filterChips = document.querySelectorAll('.filter-chip');
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', function() {
+                filterChips.forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+                const category = this.getAttribute('data-category');
+                renderProperties(category);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+/* --- RESET & VARIABLES --- */
+:root {
+    --primary-blue: #0F2C59;
+    --primary-green: #10B981;
+    --accent-gold: #F59E0B;
+    --bg-light: #F8FAFC;
+    --white: #FFFFFF;
+    --text-dark: #1E293B;
+    --text-gray: #64748B;
+    --danger-red: #EF4444;
+    --shadow-soft: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    max-width: 480px; /* Simulasi tampilan mobile app */
+    margin: 0 auto;
+    min-height: 100vh;
+    box-shadow: 0 0 50px rgba(0,0,0,0.1); /* Shadow untuk frame desktop */
+    position: relative;
+}
+
+/* --- 1. HEADER NAVIGASI --- */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.nav-icon {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.nav-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--primary-blue);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- 2. IMAGE SECTION --- */
+.image-section {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-color: #ddd;
+}
+
+.property-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badges-container {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    backdrop-filter: blur(4px);
+}
+
+.badge-verified {
+    background: rgba(16, 185, 129, 0.9);
+    color: white;
+}
+
+.badge-legal {
+    background: rgba(15, 44, 89, 0.9);
+    color: white;
+}
+
+/* --- 3. INFO CARD --- */
+.main-content {
+    padding: 0;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.price-section {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.price-meter {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.property-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.property-address {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.tags-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: #F1F5F9;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.tag-red {
+    background: #FEF2F2;
+    color: var(--danger-red);
+    border: 1px solid #FECACA;
+}
+
+/* --- 4. AI ANALYSIS CARD --- */
+.analysis-card, .feasibility-card {
+    background: var(--white);
+    margin: 15px 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+}
+
+.card-header {
+    padding: 12px 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ai-header { background: #EFF6FF; color: var(--primary-blue); }
+.feat-header { background: #ECFDF5; color: var(--primary-green); }
+
+.card-body {
+    padding: 15px;
+}
+
+.value-comparison {
+    margin-bottom: 15px;
+}
+
+.label {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    margin-bottom: 4px;
+}
+
+.value-market {
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: line-through;
+    color: var(--text-gray);
+}
+
+.status-pill {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.status-undervalued {
+    background: #DCFCE7;
+    color: #166534;
+}
+
+/* Growth Graph Visual */
+.graph-visual {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    background: #FAFAFA;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.trend-line {
+    width: 100px;
+    height: 30px;
+}
+
+.growth-rate {
+    font-weight: 700;
+    color: var(--primary-green);
+    font-size: 0.9rem;
+}
+
+.factor-tags span {
+    display: inline-block;
+    font-size: 0.8rem;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* --- 5. FEASIBILITY CARD --- */
+.input-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+}
+
+.select-wrapper {
+    margin-bottom: 15px;
+}
+
+.custom-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #CBD5E1;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    background: white;
+}
+
+.result-box {
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid transparent;
+}
+
+.result-success {
+    background: #F0FDF4;
+    border-color: #BBF7D0;
+}
+
+.result-title {
+    font-weight: 700;
+    color: #15803D;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.result-details {
+    list-style: none;
+}
+
+.result-details li {
+    font-size: 0.85rem;
+    color: #14532D;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: start;
+    gap: 8px;
+}
+
+/* --- 6. PROTECTION CARD --- */
+.protection-card {
+    margin: 20px;
+    background: linear-gradient(135deg, var(--primary-blue), #1e3a8a);
+    border-radius: 12px;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(15, 44, 89, 0.3);
+}
+
+.protection-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.prot-icon {
+    font-size: 2rem;
+    opacity: 0.9;
+}
+
+.prot-text h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.prot-text p {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.prot-features {
+    display: flex;
+    gap: 10px;
+}
+
+.prot-features span {
+    font-size: 0.7rem;
+    background: rgba(255,255,255,0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* --- 7. STICKY FOOTER --- */
+.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0; /* Reset untuk responsive */
+    width: 100%;
+    
+    /* Trik agar footer tetap di dalam container 480px jika di desktop */
+    max-width: 480px; 
+    margin: 0 auto;
+    right: 0;
+    /* --- */
+
+    background: var(--white);
+    padding: 15px 20px;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+    z-index: 999;
+}
+
+.btn-chat {
+    flex: 1;
+    background: white;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.btn-buy {
+    flex: 2;
+    background: var(--primary-blue);
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(15, 44, 89, 0.3);
+    transition: 0.2s;
+}
+
+.btn-buy:hover {
+    background: #0a1f42;
+    transform: translateY(-2px);
+}
+
+.btn-chat:hover {
+    background: #f0f7ff;
+}

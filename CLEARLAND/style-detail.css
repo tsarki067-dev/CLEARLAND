@@ -1,0 +1,437 @@
+/* --- RESET & VARIABLES --- */
+:root {
+    --primary-blue: #0F2C59;
+    --primary-green: #10B981;
+    --accent-gold: #F59E0B;
+    --bg-light: #F8FAFC;
+    --white: #FFFFFF;
+    --text-dark: #1E293B;
+    --text-gray: #64748B;
+    --danger-red: #EF4444;
+    --border-color: #E2E8F0;
+    --shadow-soft: 0 4px 20px rgba(0,0,0,0.05);
+    --shadow-hover: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* --- UTILITIES --- */
+.container {
+    max-width: 1200px; /* Lebar standar desktop */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- NAVBAR DESKTOP --- */
+.navbar {
+    background: var(--white);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--primary-blue); }
+
+.nav-actions-desktop {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-primary-small {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* --- BREADCRUMB --- */
+.breadcrumb-area {
+    padding: 20px 0;
+}
+
+.back-link {
+    text-decoration: none;
+    color: var(--text-gray);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.back-link:hover { color: var(--primary-blue); }
+
+/* --- MAIN GRID LAYOUT --- */
+.property-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Kiri 66%, Kanan 33% */
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* --- KOLOM KIRI (VISUAL & ANALISIS) --- */
+
+/* Image Section */
+.image-section {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Tinggi gambar fixed untuk desktop */
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-soft);
+}
+
+.property-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.property-img:hover { transform: scale(1.02); }
+
+.badges-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.badge {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.badge-verified { background: rgba(16, 185, 129, 0.95); color: white; }
+.badge-legal { background: rgba(15, 44, 89, 0.95); color: white; }
+
+/* AI & Feasibility Cards */
+.analysis-card, .feasibility-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 15px 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.ai-header { background: #EFF6FF; color: var(--primary-blue); }
+.feat-header { background: #ECFDF5; color: var(--primary-green); }
+
+.card-body { padding: 25px; }
+
+/* AI Internal Grid */
+.ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 5px;
+}
+
+.value-market {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+}
+
+.status-pill {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.status-undervalued { background: #DCFCE7; color: #166534; }
+
+/* Grafik */
+.graph-visual {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #FAFAFA;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.trend-line { width: 120px; height: 35px; }
+.growth-rate { font-weight: 700; color: var(--primary-green); }
+
+.factor-tags span {
+    display: inline-block;
+    background: #F1F5F9;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+/* Feasibility Inputs */
+.feasibility-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.input-area { flex: 1; }
+.result-box { flex: 2; }
+
+.custom-select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+.result-box {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.result-title {
+    font-weight: 700;
+    color: #15803D;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.result-details li {
+    list-style: none;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #14532D;
+}
+
+/* --- KOLOM KANAN (SIDEBAR STICKY) --- */
+.col-sidebar {
+    position: relative;
+}
+
+.sidebar-wrapper {
+    position: sticky;
+    top: 90px; /* Jarak dari top saat scroll */
+}
+
+/* Info Card (Sidebar Style) */
+.info-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-hover);
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.property-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: var(--primary-blue);
+}
+
+.property-address {
+    color: var(--text-gray);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 8px;
+}
+
+.tags-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.tag {
+    background: #F1F5F9;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.tag-red { background: #FEF2F2; color: var(--danger-red); border: 1px solid #FECACA; }
+
+.divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 20px 0;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.price-meter {
+    display: block;
+    color: var(--text-gray);
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-buy, .btn-chat {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+    border: none;
+}
+
+.btn-buy {
+    background: var(--primary-blue);
+    color: white;
+    box-shadow: 0 4px 10px rgba(15, 44, 89, 0.3);
+}
+
+.btn-buy:hover { background: #0a1f42; transform: translateY(-2px); }
+
+.btn-chat {
+    background: white;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-chat:hover { background: #f0f7ff; }
+
+/* Protection Card (Sidebar Style) */
+.protection-card {
+    background: linear-gradient(135deg, var(--primary-blue), #1e3a8a);
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: var(--shadow-soft);
+    transition: 0.3s;
+}
+
+.protection-card:hover { transform: translateY(-3px); }
+
+.protection-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.prot-icon { font-size: 2.5rem; opacity: 0.8; }
+.prot-text h3 { font-size: 1.1rem; margin-bottom: 5px; font-weight: 600; }
+.prot-text p { font-size: 0.85rem; opacity: 0.9; margin-bottom: 10px; }
+.prot-features span { font-size: 0.8rem; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 4px; margin-right: 5px; }
+
+/* Footer */
+.desktop-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 30px 0;
+    text-align: center;
+    color: var(--text-gray);
+    margin-top: 50px;
+    background: white;
+}
+
+/* --- RESPONSIVE TABLET (Fallback) --- */
+@media (max-width: 992px) {
+    .property-grid { grid-template-columns: 1fr; }
+    .image-section { height: 350px; }
+    .col-sidebar { position: static; }
+    .sidebar-wrapper { position: static; }
+    .ai-grid { grid-template-columns: 1fr; }
+    .feasibility-layout { flex-direction: column; }
+}

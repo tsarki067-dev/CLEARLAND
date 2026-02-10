@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - Clearland</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style-login.css">
+</head>
+<body>
+
+    <div class="bg-image"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            
+            <div class="brand-header">
+                <i class="fa-solid fa-shield-halved logo-icon"></i>
+                <h2>CLEARLAND</h2>
+                <p>Gateway Investasi Tanah Terpercaya</p>
+            </div>
+
+            <div class="user-toggle-container">
+                <div class="toggle-bg"></div>
+                <button class="toggle-btn active" onclick="switchUser('user')">
+                    <i class="fa-solid fa-user"></i> User 
+                </button>
+                <button class="toggle-btn" onclick="switchUser('mitra')">
+                    <i class="fa-solid fa-handshake"></i> Mitra
+                </button>
+            </div>
+
+            <form action="#" class="login-form">
+                <input type="hidden" id="roleInput" name="role" value="user">
+
+                <div class="input-group">
+                    <label for="email">Email / Nomor HP</label>
+                    <div class="input-field">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="text" id="email" placeholder="Masukkan email Anda" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Kata Sandi</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Masukkan kata sandi" required>
+                        <i class="fa-regular fa-eye toggle-password" onclick="togglePassword()"></i>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <label class="remember-me">
+                        <input type="checkbox"> Ingat Saya
+                    </label>
+                    <a href="#" class="forgot-pass">Lupa Sandi?</a>
+                </div>
+
+                <button type="submit" class="btn-login" id="loginBtn">Masuk Sekarang</button>
+            </form>
+
+            <div class="divider">
+                <span>Atau masuk dengan</span>
+            </div>
+
+            <div class="social-login">
+                <button class="btn-social google"><i class="fa-brands fa-google"></i> Google</button>
+                <button class="btn-social facebook"><i class="fa-brands fa-facebook-f"></i> Facebook</button>
+            </div>
+
+            <div class="register-link">
+                Belum punya akun? <a href="#">Daftar Sekarang</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi Ganti Tab User/Mitra
+        function switchUser(type) {
+            const btns = document.querySelectorAll('.toggle-btn');
+            const bg = document.querySelector('.toggle-bg');
+            const roleInput = document.getElementById('roleInput');
+            const loginBtn = document.getElementById('loginBtn');
+
+            if (type === 'user') {
+                btns[0].classList.add('active');
+                btns[1].classList.remove('active');
+                bg.style.left = '5px'; // Posisi background active
+                roleInput.value = 'user';
+                loginBtn.style.background = '#0F2C59'; // Warna Biru
+                loginBtn.innerText = "Masuk sebagai User";
+            } else {
+                btns[0].classList.remove('active');
+                btns[1].classList.add('active');
+                bg.style.left = '50%'; // Pindah ke kanan
+                roleInput.value = 'mitra';
+                loginBtn.style.background = '#10B981'; // Warna Hijau untuk Mitra
+                loginBtn.innerText = "Masuk Dashboard Mitra";
+            }
+        }
+
+        // Fungsi Lihat Password
+        function togglePassword() {
+            const input = document.getElementById('password');
+            const icon = document.querySelector('.toggle-password');
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = "password";
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    </script>
+
+</body>
+</html>

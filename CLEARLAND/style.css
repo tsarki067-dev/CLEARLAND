@@ -1,0 +1,148 @@
+body{
+	font-family: monospace;
+	font-size: 13pt;
+}
+ 
+th{
+	text-align: left;
+}
+ 
+img{
+	width: 100%;
+	margin-bottom: 10px;
+}
+ .teks1{
+	font-size: 30pt;
+	color: burlywood;
+	background-color: navy;
+ }
+
+ .teks2{
+	font-size: 30pt;
+	color: yellow;
+	background-color: maroon;
+	text-shadow: 3px 3px cyan;
+ }
+
+.kotak{
+	border: 1px solid black;
+	width: 60%;
+	margin: 10px auto;
+	padding: 20px;
+}
+ 
+.judul{
+	font-family: monospace;
+	font-size: 8pt;
+	text-align: center;
+        background: yellow;
+}
+
+.subjudul{
+	color: white;
+	text-align: center;
+        background: blueviolet;
+}
+ 
+.blok{
+	overflow: hidden;
+}
+ 
+.kiri{
+	width: 20%;
+	float: left;
+}
+ 
+.kanan{
+	width: 70%;
+	padding:0px 20px;	
+	float: left;
+}
+ 
+.table1 {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: sans-serif;
+    color: #444;
+    border-collapse: collapse;
+    width: 30%;
+    border: 1px solid #f2f5f7;
+}
+ 
+.table1 tr th{
+
+    background: #35A9DB;
+    color: #fff;
+    font-weight: normal;
+}
+ 
+.table1, th, td {
+	font-size: 15px;
+    text-align: center;
+}
+ 
+.table2 {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Times New Roman';
+    color: black;
+    border-collapse: collapse;
+    width: 40%;
+    border: 2px solid #080202;
+}
+.table2 tr th{
+    background: #e80b0b;
+    color: black;
+    font-weight: normal;
+	tr-hover background-color: coral;
+}
+.table2, th, td {
+	font-size: 20px;
+    text-align: center;
+}
+.table2 tr:hover {
+    background-color: green;
+}
+ 
+.table2 tr:nth-child(even) {
+    background-color:yellow;
+}
+
+.div1 {
+            font-size: 15px;
+   			text-align: center;
+   			padding-top: 5px;
+			padding-right: 50px;
+			padding-bottom: 5px;
+			padding-left: 50px;
+        	border: 1px solid green;
+         }
+.div3 {
+           font-size: 15px;
+   		 text-align: center;
+       }
+
+.table1 tr:hover {
+    background-color: #f5f5f5;
+}
+ 
+.table1 tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+@media only screen and (max-width: 768px) {
+	.kotak{
+		width: 100%;
+		padding: 0px;
+		border: none;
+	}
+	
+	.kiri{
+		width: 100%;
+	}
+ 
+	.kanan{
+		width: 100%;
+		padding: 0;
+	}
+}
