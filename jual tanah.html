@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jual Tanah - Clearland</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style-jual.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-shield-halved"></i> CLEARLAND
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="beli tanah.html">Beli Tanah</a></li>
+                <li><a href="#" class="active">Jual Tanah</a></li>
+                <li><a href="layanan legal.html">Layanan Legal</a></li>
+                <li><a href="cek harga.html">Cek Harga Tanah</a></li>
+                <li><a href="peta-interaktif-gis.html">Peta Interaktif</a></li>
+            </ul>
+            <a href="#" class="btn-account">Akun Saya</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <span class="badge-header">🚀 FAST SELLING 🚀</span>
+                <h1>Jual Tanah Lebih Cepat & Aman</h1>
+                <p>Pasarkan tanah Anda ke ribuan investor potensial. Kami bantu verifikasi legalitas dan analisis harga wajar menggunakan AI agar cepat terjual.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-grid">
+        
+        <div class="form-column">
+            <form action="#" class="sell-form">
+                
+                <div class="form-section">
+                    <h3><i class="fa-solid fa-map-location-dot"></i> Informasi Dasar</h3>
+                    
+                    <div class="form-group">
+                        <label>Judul Iklan</label>
+                        <input type="text" placeholder="Contoh: Tanah Kavling Strategis Pinggir Jalan Raya Bogor">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Harga Total (Rp)</label>
+                            <input type="number" placeholder="Contoh: 1500000000">
+                        </div>
+                        <div class="form-group">
+                            <label>Luas Tanah (m²)</label>
+                            <input type="number" placeholder="300">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Alamat Lengkap</label>
+                        <textarea rows="3" placeholder="Masukkan alamat lengkap lokasi tanah..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fa-solid fa-file-contract"></i> Dokumen Legalitas</h3>
+                    <div class="alert-box">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p>Clearland menjunjung tinggi <strong>Clean Legal</strong>. Data sertipikat Anda aman dan hanya digunakan untuk verifikasi.</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Jenis Sertifikat</label>
+                            <select>
+                                <option>SHM (Sertifikat Hak Milik)</option>
+                                <option>SHGB (Hak Guna Bangunan)</option>
+                                <option>Girik / Letter C</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Nomor Sertifikat (Untuk Verifikasi BPN)</label>
+                            <input type="text" placeholder="Masukkan No. Sertifikat">
+                        </div>
+                    </div>
+
+                    <div class="upload-area">
+                        <input type="file" id="fileCert" hidden>
+                        <label for="fileCert" class="upload-label">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Upload Scan Sertifikat (PDF/JPG)</span>
+                            <small>Maksimal 5MB</small>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fa-regular fa-images"></i> Foto & Video</h3>
+                    <div class="upload-grid">
+                        <div class="upload-box main-photo">
+                            <i class="fa-solid fa-camera"></i>
+                            <span>Foto Utama</span>
+                        </div>
+                        <div class="upload-box">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="upload-box">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="upload-box">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-submit">
+                    Tayangkan Iklan Sekarang <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </form>
+        </div>
+
+        <div class="sidebar-column">
+            
+            <div class="sidebar-card ai-preview">
+                <div class="card-head">
+                    <i class="fa-solid fa-robot"></i> 
+                    <h4>Analisis Otomatis Sistem</h4>
+                </div>
+                <p>Setelah Anda upload, AI Clearland akan menganalisis:</p>
+                <ul class="indicator-list">
+                    <li>
+                        <span class="icon green"><i class="fa-solid fa-tags"></i></span>
+                        <div>
+                            <strong>Estimasi Harga Wajar</strong>
+                            <small>Sistem akan memberi label <em>Undervalued</em> atau <em>Fair Price</em></small>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon blue"><i class="fa-solid fa-map"></i></span>
+                        <div>
+                            <strong>Cek Zonasi RDTR</strong>
+                            <small>Otomatis mengecek zona lahan (Kuning/Merah/Hijau)</small>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon orange"><i class="fa-solid fa-chart-line"></i></span>
+                        <div>
+                            <strong>Prediksi Kenaikan</strong>
+                            <small>Estimasi kenaikan harga 1-5 tahun ke depan</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card trust-card">
+                <h4>Kenapa Jual di Clearland?</h4>
+                <div class="trust-item">
+                    <i class="fa-solid fa-check-double"></i>
+                    <p><strong>Terverifikasi:</strong> Iklan Anda mendapat badge "Verified" yang disukai pembeli.</p>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <p><strong>Aman:</strong> Data legalitas dienkripsi dan tidak dipublikasikan sembarangan.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Clearland Marketplace - STPN</p>
+        </div>
+    </footer>
+
+</body>
+</html>

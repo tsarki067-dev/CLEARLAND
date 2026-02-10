@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peta Interaktif - Clearland GIS Pro</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <link rel="stylesheet" href="style-peta-gis.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i> CLEARLAND <span class="badge">GIS PRO</span>
+        </div>
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="search-input" placeholder="Cari lokasi (contoh: Sentul City)...">
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="btn-home"><i class="fa-solid fa-house"></i> Beranda</a>
+            <div class="user-profile"><i class="fa-regular fa-user-circle"></i></div>
+        </div>
+    </nav>
+
+    <div class="gis-layout">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fa-solid fa-layer-group"></i> Layer & Analisis</h3>
+            </div>
+
+            <div class="scroll-content">
+                
+                <div class="analysis-card">
+                    <div class="ac-header">
+                        <i class="fa-solid fa-location-dot"></i> Hasil Analisis Lokasi
+                    </div>
+                    <div class="ac-body">
+                        <p class="hint">Geser pin merah di peta untuk update data otomatis.</p>
+                        <div class="ac-grid">
+                            <div class="ac-row">
+                                <span class="lbl">Koordinat</span>
+                                <span class="val" id="val-coord">-6.5566, 106.8617</span>
+                            </div>
+                            <div class="ac-row">
+                                <span class="lbl">Luas Tanah</span>
+                                <span class="val">300 m²</span>
+                            </div>
+                            <div class="ac-row">
+                                <span class="lbl">Jenis Hak</span>
+                                <span class="val">SHM (Hak Milik)</span>
+                            </div>
+                            <div class="ac-row">
+                                <span class="lbl">Zona Tata Ruang</span>
+                                <span class="val text-red" id="val-zona">Perdagangan & Jasa</span>
+                            </div>
+                            <div class="ac-row">
+                                <span class="lbl">Risiko Bencana</span>
+                                <span class="val text-green" id="val-risiko">Rendah (Aman)</span>
+                            </div>
+                            <div class="ac-divider"></div>
+                            <div class="ac-row large">
+                                <span class="lbl">Est. Harga Pasar</span>
+                                <span class="val price-text" id="val-harga">Rp1.500.000/m²</span>
+                            </div>
+                        </div>
+                        <div class="status-indicator status-ok" id="val-status">
+                            <i class="fa-solid fa-circle-check"></i> LAYAK DIBANGUN
+                        </div>
+                        <a href="detail.html?id=1" class="btn-full-detail">Lihat Detail Lengkap</a>
+                    </div>
+                </div>
+
+                <hr class="sidebar-divider">
+
+                <div class="layer-group expanded">
+                    <div class="group-title" onclick="toggleGroup(this)">
+                        <span>Zona Nilai Tanah (ZNT)</span>
+                        <i class="fa-solid fa-chevron-up"></i>
+                    </div>
+                    <div class="group-body">
+                        <div class="legend-list">
+                            <div class="legend-item"><span class="color-box znt-1"></span> <span>< 100rb</span></div>
+                            <div class="legend-item"><span class="color-box znt-2"></span> <span>100rb - 500rb</span></div>
+                            <div class="legend-item"><span class="color-box znt-3"></span> <span>500rb - 1 Juta</span></div>
+                            <div class="legend-item"><span class="color-box znt-4"></span> <span>1 Juta - 2 Juta</span></div>
+                            <div class="legend-item"><span class="color-box znt-5"></span> <span>2 Juta - 5 Juta</span></div>
+                            <div class="legend-item"><span class="color-box znt-6"></span> <span>5 Juta - 10 Juta</span></div>
+                            <div class="legend-item"><span class="color-box znt-7"></span> <span>> 20 Juta</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layer-group">
+                    <div class="group-title" onclick="toggleGroup(this)">
+                        <span>Jenis Hak Atas Tanah</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="group-body" style="display:none;">
+                        <label class="check-item"><input type="checkbox" checked> <span class="icon-hak shm"></span> SHM (Hak Milik)</label>
+                        <label class="check-item"><input type="checkbox" checked> <span class="icon-hak shgb"></span> SHGB (Guna Bangunan)</label>
+                        <label class="check-item"><input type="checkbox"> <span class="icon-hak hgu"></span> HGU (Guna Usaha)</label>
+                        <label class="check-item"><input type="checkbox"> <span class="icon-hak letterc"></span> Letter C / Girik</label>
+                    </div>
+                </div>
+
+                <div class="layer-group expanded">
+                    <div class="group-title" onclick="toggleGroup(this)">
+                        <span>Analisis Risiko Bencana</span>
+                        <i class="fa-solid fa-chevron-up"></i>
+                    </div>
+                    <div class="group-body">
+                        <label class="check-item"><input type="checkbox"> <span class="risk-icon flood"><i class="fa-solid fa-water"></i></span> Rawan Banjir</label>
+                        <label class="check-item"><input type="checkbox"> <span class="risk-icon slide"><i class="fa-solid fa-hill-rockslide"></i></span> Rawan Longsor</label>
+                        <label class="check-item"><input type="checkbox"> <span class="risk-icon fire"><i class="fa-solid fa-fire"></i></span> Rawan Kebakaran</label>
+                    </div>
+                </div>
+
+                <div class="layer-group">
+                    <div class="group-title" onclick="toggleGroup(this)">
+                        <span>Peta Dasar</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="group-body" style="display:none;">
+                        <label class="radio-item"><input type="radio" name="basemap" value="osm" checked onchange="setBasemap(this.value)"> Jalan (OSM)</label>
+                        <label class="radio-item"><input type="radio" name="basemap" value="satelit" onchange="setBasemap(this.value)"> Satelit (Esri)</label>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <main class="map-canvas">
+            <div id="map"></div>
+            
+            <div class="map-tools">
+                <button title="Zoom In" onclick="map.zoomIn()"><i class="fa-solid fa-plus"></i></button>
+                <button title="Zoom Out" onclick="map.zoomOut()"><i class="fa-solid fa-minus"></i></button>
+                <button title="Lokasi Saya" class="active"><i class="fa-solid fa-location-crosshairs"></i></button>
+                <button title="Ukur Jarak"><i class="fa-solid fa-ruler-combined"></i></button>
+            </div>
+
+            <div class="map-legend-box">
+                <div class="legend-header">Legenda RDTR</div>
+                <div class="legend-content">
+                    <div class="l-item"><span class="box rdtr-red"></span> Perdagangan</div>
+                    <div class="l-item"><span class="box rdtr-yellow"></span> Pemukiman</div>
+                    <div class="l-item"><span class="box rdtr-purple" style="background: #9333EA;"></span> Industri</div>
+                    <div class="l-item"><span class="box rdtr-green"></span> RTH / Hijau</div>
+                    <div class="l-item"><span class="box rdtr-orange" style="background: #EA580C;"></span> Fasilitas Umum</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        // 1. Inisialisasi Peta (Leaflet)
+        var map = L.map('map', { zoomControl: false }).setView([-6.5566, 106.8617], 15);
+
+        // 2. Base Layers
+        var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+        var satelitLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19 });
+
+        function setBasemap(type) {
+            if(type === 'osm') { map.addLayer(osmLayer); map.removeLayer(satelitLayer); }
+            else { map.addLayer(satelitLayer); map.removeLayer(osmLayer); }
+        }
+
+        // 3. Simulasi Zona (Polygon)
+        var zonaMerah = L.polygon([
+            [-6.5540, 106.8600], [-6.5540, 106.8650], 
+            [-6.5580, 106.8650], [-6.5580, 106.8600]
+        ], { color: 'red', fillColor: '#DC2626', fillOpacity: 0.3, weight: 1 }).addTo(map);
+
+        // 4. Marker Custom Icon (Pin Merah)
+        var myIcon = L.divIcon({
+            className: 'custom-pin',
+            html: '<i class="fa-solid fa-location-dot"></i>',
+            iconSize: [40, 40], iconAnchor: [20, 40]
+        });
+
+        // Marker ini bisa digeser (draggable) untuk simulasi analisis
+        var marker = L.marker([-6.5566, 106.8617], { icon: myIcon, draggable: true }).addTo(map);
+
+        // --- 5. POPUP KONTEN HTML (FOTO & INFO) ---
+        var popupContent = `
+            <div class="map-popup-card">
+                <div class="popup-image">
+                    <img src="sentul city.jpg" alt="Foto Tanah">
+                    <div class="badge-verified"><i class="fa-solid fa-shield-halved"></i> Verified</div>
+                    <div class="badge-zoning">Zona Merah</div>
+                </div>
+                
+                <div class="popup-info">
+                    <h4>Tanah Komersial Raya Bogor</h4>
+                    <p class="popup-price">Rp 1.5 Miliar</p>
+                    
+                    <div class="popup-specs">
+                        <div class="spec-item">
+                            <i class="fa-solid fa-ruler-combined"></i> 300 m²
+                        </div>
+                        <div class="spec-item">
+                            <i class="fa-solid fa-file-contract"></i> SHM
+                        </div>
+                    </div>
+
+                    <a href="detail.html?id=1" class="btn-popup-action">
+                        Lihat Detail Lengkap <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        `;
+
+        // Bind Popup ke Marker
+        marker.bindPopup(popupContent, {
+            maxWidth: 300,
+            className: 'custom-leaflet-popup'
+        });
+
+        // Event saat Marker Selesai Digeser (Drag End)
+        marker.on('dragend', function(event) {
+            var position = marker.getLatLng();
+            updateSidebarInfo(position.lat, position.lng); // Update Sidebar
+            marker.openPopup(); // Buka popup otomatis
+        });
+
+        // Fungsi Update Info Sidebar (Simulasi Logika)
+        function updateSidebarInfo(lat, lng) {
+            document.getElementById('val-coord').innerText = lat.toFixed(4) + ", " + lng.toFixed(4);
+            
+            // Logika simulasi perubahan data berdasarkan lokasi
+            if(lat > -6.5560) {
+                document.getElementById('val-harga').innerText = "Rp2.500.000/m²";
+                document.getElementById('val-zona').innerText = "Perumahan Elite";
+                document.getElementById('val-zona').className = "val text-orange";
+            } else {
+                document.getElementById('val-harga').innerText = "Rp1.500.000/m²";
+                document.getElementById('val-zona').innerText = "Perdagangan & Jasa";
+                document.getElementById('val-zona').className = "val text-red";
+            }
+        }
+
+        // Toggle Sidebar Group
+        function toggleGroup(el) {
+            var body = el.nextElementSibling;
+            var icon = el.querySelector('i');
+            if (body.style.display === "none") {
+                body.style.display = "block";
+                icon.className = "fa-solid fa-chevron-up";
+            } else {
+                body.style.display = "none";
+                icon.className = "fa-solid fa-chevron-down";
+            }
+        }
+    </script>
+
+</body>
+</html>

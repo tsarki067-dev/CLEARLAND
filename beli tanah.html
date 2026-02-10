@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beli Tanah - Clearland Marketplace</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style-beli.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-shield-halved"></i> CLEARLAND
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="#" class="active">Beli Tanah</a></li>
+                <li><a href="jual tanah.html">Jual Tanah</a></li>
+                <li><a href="layanan legal.html">Layanan Legal</a></li>
+                <li><a href="cek harga.html">Cek Harga Tanah</a></li>
+                <li><a href="peta-interaktif-gis.html">Peta Interaktif</a></li>
+            </ul>
+            <a href="login.html" class="btn-account">Masuk Akun</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container header-content">
+            <span class="subtitle">✨ INVESTASI MASA DEPAN</span>
+            <h1>Temukan Lahan Potensial<br>dengan Keamanan Terjamin</h1>
+            <p>Jelajahi 12 properti pilihan yang telah lolos verifikasi legalitas, analisis zona RDTR, dan prediksi harga AI.</p>
+        </div>
+
+        <div class="container sticky-filter">
+            <div class="filter-wrapper">
+                <button class="filter-btn active" onclick="filterSelection('all')">
+                    <i class="fa-solid fa-layer-group"></i> Semua
+                </button>
+                <button class="filter-btn" onclick="filterSelection('residential')">
+                    <i class="fa-solid fa-house-chimney"></i> Perumahan
+                </button>
+                <button class="filter-btn" onclick="filterSelection('commercial')">
+                    <i class="fa-solid fa-shop"></i> Ruko / Bisnis
+                </button>
+                <button class="filter-btn" onclick="filterSelection('industrial')">
+                    <i class="fa-solid fa-industry"></i> Industri
+                </button>
+                <button class="filter-btn" onclick="filterSelection('agricultural')">
+                    <i class="fa-solid fa-wheat-awn"></i> Pertanian
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="property-grid" id="propertyGrid">
+
+            <div class="prop-card" data-category="commercial">
+                <div class="card-thumb">
+                    <img src="sentul city.jpg" alt="Tanah Sentul">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                        <span class="badge badge-ai"><i class="fa-solid fa-wand-magic-sparkles"></i> Undervalued</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=1" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 1.5 M</span>
+                        <span class="price-meter">Rp 5jt/m²</span>
+                    </div>
+                    <h3>Tanah Komersial Pinggir Jalan</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Sentul City, Bogor</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 300 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHM</span>
+                    </div>
+                    <div class="feasibility feat-green">Layak Bangun (Komersial)</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="residential">
+                <div class="card-thumb">
+                    <img src="bsd city.jpg" alt="BSD City">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                        <span class="badge badge-ai bg-white"><i class="fa-solid fa-scale-balanced"></i> Fair Price</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=2" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 850 Jt</span>
+                        <span class="price-meter">Rp 7jt/m²</span>
+                    </div>
+                    <h3>Kavling Siap Bangun Cluster</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> BSD City, Tangerang</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 120 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHGB</span>
+                    </div>
+                    <div class="feasibility feat-yellow">Zona Kuning (Residential)</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="industrial">
+                <div class="card-thumb">
+                    <img src="tanah Delta SIlicon.jpg" alt="Cikarang">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                        <span class="badge badge-ai bg-white"><i class="fa-solid fa-arrow-trend-up"></i> High Growth</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=3" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 15 M</span>
+                        <span class="price-meter">Rp 3jt/m²</span>
+                    </div>
+                    <h3>Lahan Zona Industri Delta Silicon</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Cikarang, Bekasi</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 5000 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHGB</span>
+                    </div>
+                    <div class="feasibility feat-green">Siap Bangun Pabrik</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="agricultural">
+                <div class="card-thumb">
+                    <img src="sawah-jakarta.jpeg" alt="Ubud Bali">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                        <span class="badge badge-ai bg-white"><i class="fa-solid fa-star"></i> Rising Star</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=4" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 3.2 M</span>
+                        <span class="price-meter">Rp 1.5jt/m²</span>
+                    </div>
+                    <h3>Sawah Produktif Tengah Kota</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Cilincing, Jakarta Utara</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 2100 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHM</span>
+                    </div>
+                    <div class="feasibility feat-green">Lahan Hijau (Tani)</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="commercial">
+                <div class="card-thumb">
+                    <img src="ruko-gandeng.jpeg" alt="Kelapa Gading">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=5" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 8 M</span>
+                        <span class="price-meter">Rp 25jt/m²</span>
+                    </div>
+                    <h3>Ruko Gandeng Strategis</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Kelapa Gading, Jakarta Utara</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 320 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHM</span>
+                    </div>
+                    <div class="feasibility feat-green">Zona Merah (Komersial)</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="residential">
+                <div class="card-thumb">
+                    <img src="villa-bogor.jpg" alt="Bandung">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=6" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 2.1 M</span>
+                        <span class="price-meter">Rp 4.5jt/m²</span>
+                    </div>
+                    <h3>Tanah Villa Cisarua</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Puncak, Bogor</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 450 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHM</span>
+                    </div>
+                    <div class="feasibility feat-green">Layak Huni / Villa</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="residential">
+                <div class="card-thumb">
+                    <img src="tangerang.jpg" alt="Sleman">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=7" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 500 Jt</span>
+                        <span class="price-meter">Rp 2.5jt/m²</span>
+                    </div>
+                    <h3>Tanah Pekarangan Tangerang Selatan</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Pamulang, Tangerang Selatan</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 200 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHM</span>
+                    </div>
+                    <div class="feasibility feat-yellow">Perlu Urug</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="industrial">
+                <div class="card-thumb">
+                    <img src="gudang.jpg" alt="Gudang Surabaya">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                        <span class="badge badge-ai bg-white"><i class="fa-solid fa-arrow-trend-up"></i> High Growth</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=8" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 12 M</span>
+                        <span class="price-meter">Rp 8jt/m²</span>
+                    </div>
+                    <h3>Tanah Gudang Cimanggis</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Cimanggis, Depok</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 1500 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHGB</span>
+                    </div>
+                    <div class="feasibility feat-green">Zona Industri</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="residential">
+                <div class="card-thumb">
+                    <img src="villa-bogor-2.jpg" alt="Malang">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=9" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 900 Jt</span>
+                        <span class="price-meter">Rp 3jt/m²</span>
+                    </div>
+                    <h3>Kavling Villa Batu View</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Green Mountvill, Bogor</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 300 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHGB</span>
+                    </div>
+                    <div class="feasibility feat-green">Layak Huni</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="commercial">
+                <div class="card-thumb">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1000&auto=format&fit=crop" alt="Medan">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=10" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 2.5 M</span>
+                        <span class="price-meter">Rp 6jt/m²</span>
+                    </div>
+                    <h3>Tanah Komersial Ringroad</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Medan, Sumut</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 400 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHM</span>
+                    </div>
+                    <div class="feasibility feat-yellow">Sengketa Ringan</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="residential">
+                <div class="card-thumb">
+                    <img src="kos.jpg" alt="Makassar">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                        <span class="badge badge-ai bg-white"><i class="fa-solid fa-star"></i> Rising Star</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=11" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 4.8 M</span>
+                        <span class="price-meter">Rp 8jt/m²</span>
+                    </div>
+                    <h3>Lahan Kos Dekat Kampus</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Pesanggrahan, Jakarta Selatan</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 600 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHM</span>
+                    </div>
+                    <div class="feasibility feat-green">Layak Bangun</div>
+                </div>
+            </div>
+
+            <div class="prop-card" data-category="agricultural">
+                <div class="card-thumb">
+                    <img src="kebun durian.jpeg" alt="Semarang">
+                    <div class="badges">
+                        <span class="badge badge-verif"><i class="fa-solid fa-check"></i> Verified</span>
+                        <span class="badge badge-ai"><i class="fa-solid fa-wand-magic-sparkles"></i> Undervalued</span>
+                    </div>
+                    <div class="thumb-overlay">
+                        <a href="detail.html?id=12" class="btn-detail-overlay">
+                            LIHAT DETAIL <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="price-row">
+                        <span class="price">Rp 6.125 M</span>
+                        <span class="price-meter">Rp 1.75jt/m²</span>
+                    </div>
+                    <h3>Kebun Durian Produktif</h3>
+                    <div class="location"><i class="fa-solid fa-location-dot"></i> Kebun Mekarsari, Bogor</div>
+                    <div class="specs">
+                        <span><i class="fa-solid fa-maximize"></i> 3.500 m²</span>
+                        <span><i class="fa-solid fa-file-contract"></i> SHM</span>
+                    </div>
+                    <div class="feasibility feat-green">Zona Hijau (Kebun)</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Clearland Marketplace. Semua hak dilindungi. &copy;Kelompok 10</p>
+        </div>
+    </footer>
+
+    <script>
+        function filterSelection(category) {
+            const cards = document.getElementsByClassName("prop-card");
+            const btns = document.getElementsByClassName("filter-btn");
+
+            // 1. Update Tombol Aktif
+            for (let btn of btns) {
+                btn.classList.remove("active");
+                // Cek jika tombol ini yang diklik (berdasarkan onclick value)
+                if (btn.getAttribute("onclick").includes(category)) {
+                    btn.classList.add("active");
+                }
+            }
+
+            // 2. Filter Logika
+            if (category == "all") category = "";
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].classList.remove("show");
+                
+                if (cards[i].getAttribute("data-category").indexOf(category) > -1) {
+                    cards[i].style.display = "flex";
+                    // Delay sedikit untuk animasi fade-in
+                    setTimeout(() => {
+                        cards[i].classList.add("show");
+                    }, 50);
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // Init Show All
+        filterSelection("all");
+    </script>
+
+</body>
+</html>

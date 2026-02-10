@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Harga Tanah AI - Clearland</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style-cek-harga.css">
+</head>
+<body>
+
+    <div class="bg-map"></div>
+    <div class="bg-overlay"></div>
+
+    <nav class="navbar">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-shield-halved"></i> CLEARLAND
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="beli tanah.html">Beli Tanah</a></li>
+                <li><a href="jual tanah.html">Jual Tanah</a></li>
+                <li><a href="layanan legal.html">Layanan Legal</a></li>
+                <li><a href="#" class="active">Cek Harga Tanah</a></li>
+                <li><a href="peta-interaktif-gis.html">Peta Interaktif</a></li>
+            </ul>
+            <a href="#" class="btn-nav">Akun Saya</a>
+        </div>
+    </nav>
+
+    <div class="container content-wrapper">
+        
+        <header class="search-header">
+    <span class="badge-ai">✨ POWERED BY BIG DATA & AI</span>
+    <h1>Cek Harga & Nilai Tanah</h1>
+    <p>Masukkan lokasi lahan untuk mendapatkan estimasi harga pasar wajar dan prediksi kenaikan investasi dalam 5 tahun ke depan.</p>
+    
+    <div class="search-box-wrapper">
+        <div class="input-group">
+            <span class="input-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            
+            <input type="text" id="searchInput" placeholder="Cari Kecamatan, Kelurahan, atau nama jalan..." value="Sentul City, Bogor, Jawa Barat">
+            
+            <button class="btn-gps" title="Gunakan Lokasi Saat Ini">
+                <i class="fa-solid fa-location-crosshairs"></i>
+            </button>
+        </div>
+        
+        <button class="btn-analyze" onclick="window.location.href='#result'">
+            Cek Harga
+        </button>
+    </div>
+
+    <div class="popular-tags">
+        <span>Populer:</span>
+        <a href="#">Cibubur</a>
+        <a href="#">BSD City</a>
+        <a href="#">Canggu Bali</a>
+        <a href="#">IKN Nusantara</a>
+    </div>
+</header>
+
+        <main class="dashboard-grid">
+            
+            <div class="glass-card price-card">
+                <div class="card-label">ESTIMASI HARGA PASAR SAAT INI</div>
+                <div class="price-big">
+                    Rp 5.200.000 <span class="per-meter">/ m²</span>
+                </div>
+                <div class="price-range">
+                    <span>Range Pasar:</span> Rp 4.8jt - Rp 5.5jt / m²
+                </div>
+                <div class="status-badge undervalued">
+                    <i class="fa-solid fa-chart-line"></i> Potensi Growth Tinggi
+                </div>
+            </div>
+
+            <div class="glass-card factors-card">
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-layer-group"></i> Faktor Penentu Nilai</h3> </div>
+                <div class="factors-grid">
+                    <div class="factor-item">
+                        <div class="icon-box blue"><i class="fa-solid fa-road"></i></div>
+                        <div class="factor-text">
+                            <h4>Aksesibilitas</h4>
+                            <p>0.5 km dari Pintu Tol Sentul</p>
+                            <div class="score-bar"><div class="fill" style="width: 90%"></div></div>
+                        </div>
+                    </div>
+                    
+                    <div class="factor-item">
+                        <div class="icon-box green"><i class="fa-solid fa-hospital"></i></div>
+                        <div class="factor-text">
+                            <h4>Fasilitas Publik</h4>
+                            <p>Dekat RS EMC & AEON Mall</p>
+                            <div class="score-bar"><div class="fill" style="width: 85%"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="factor-item">
+                        <div class="icon-box purple"><i class="fa-solid fa-map"></i></div>
+                        <div class="factor-text">
+                            <h4>Zona Tata Ruang</h4>
+                            <p>Zona Merah (Komersial)</p>
+                            <div class="score-bar"><div class="fill" style="width: 95%"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="factor-item">
+                        <div class="icon-box orange"><i class="fa-solid fa-building-crane"></i></div>
+                        <div class="factor-text">
+                            <h4>Potensi Wilayah</h4>
+                            <p>Rencana Stasiun LRT (2026)</p>
+                            <div class="score-bar"><div class="fill" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card projection-card">
+                <div class="card-header">
+                    <h3><i class="fa-solid fa-arrow-trend-up"></i> Proyeksi Kenaikan 5 Tahun</h3> <span class="roi-badge">+12% / Tahun</span>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="y-axis">
+                        <span>8jt</span>
+                        <span>7jt</span>
+                        <span>6jt</span>
+                        <span>5jt</span>
+                    </div>
+                    <div class="bars-wrapper">
+                        <div class="bar-group">
+                            <div class="bar" style="height: 40%;">
+                                <span class="bar-val">Rp 5.2jt</span>
+                            </div>
+                            <span class="year">2025</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 52%;"></div>
+                            <span class="year">2026</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 65%;"></div>
+                            <span class="year">2027</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="height: 78%;"></div>
+                            <span class="year">2028</span>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar active" style="height: 92%;">
+                                <span class="bar-val">Rp 7.8jt</span>
+                            </div>
+                            <span class="year">2029</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="disclaimer">*Proyeksi berdasarkan data historis dan rencana tata ruang wilayah.</p>
+            </div>
+
+        </main>
+    </div>
+<footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Clearland - STPN</p>
+            <div class="footer-links">
+                <a href="#">Kebijakan Privasi</a>
+                <span>•</span>
+                <a href="#">Syarat & Ketentuan</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
